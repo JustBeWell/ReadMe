@@ -5,8 +5,10 @@ package factorial;
   2. factorial 1 -> 1
 */
 
-import org.junit.jupiter.api.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 class FactorialTest {
   Factorial factorial  ;
@@ -35,4 +37,12 @@ class FactorialTest {
     assertEquals(expectedValue, obtainedValue) ;
   }
 
+  @Test
+  @DisplayName("Factorial de 2")
+  void factorialOfTwoIsThree() {
+    int obtainedValue = factorial.factorial(2) ;
+    int expectedValue = 2;
+
+    assertEquals(expectedValue, obtainedValue) ;
+  }
 }

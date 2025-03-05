@@ -1,10 +1,9 @@
 package bank;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BankAccountTest {
     @Test
@@ -29,6 +28,16 @@ public class BankAccountTest {
         bankAccount.deposit(depositAmount);
         //Assert
         assertEquals(moneyAfterDeposit, bankAccount.getBalance());
+    }
+
+    @Test
+    @DisplayName("Deposit throws")
+    public void deposit_throws(){
+        //Arrange
+        BankAccount bankAccount = new BankAccount(100);
+        int depositAmount = -1;
+        //Assert
+        assertThrows(IllegalArgumentException.class, () -> bankAccount.deposit(depositAmount));
     }
 
     @Test
